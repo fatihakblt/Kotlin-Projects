@@ -66,13 +66,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="213dp"
-        android:layout_height="69dp"
+        android:layout_width="207dp"
+        android:layout_height="54dp"
         android:text="@string/yardim"
         android:textColor="@color/colorAccent"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="1170dp" />
+        tools:layout_editor_absoluteY="1146dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
