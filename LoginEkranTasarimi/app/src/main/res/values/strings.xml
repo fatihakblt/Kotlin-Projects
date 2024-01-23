@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LoginEkranTasarim</string>
+    <string name="MagazaAdi">Mağaza Adı </string>
+    <string name="sifre">Şifre</string>
+    <string name="butonYazi">GİRİŞ</string>
+    <string name="yardim">Yardım ?</string>
 </resources>
