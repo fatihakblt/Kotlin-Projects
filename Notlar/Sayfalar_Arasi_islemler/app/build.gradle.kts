@@ -7,6 +7,10 @@ android {
     namespace = "com.fatihakbulut.sayfalar_arasi_islemler"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding= true
+    }
+
     defaultConfig {
         applicationId = "com.fatihakbulut.sayfalar_arasi_islemler"
         minSdk = 24
@@ -19,7 +23,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
