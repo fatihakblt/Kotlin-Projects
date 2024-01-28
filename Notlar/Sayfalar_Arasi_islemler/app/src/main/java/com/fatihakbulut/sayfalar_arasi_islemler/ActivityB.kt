@@ -16,6 +16,8 @@ class ActivityB : AppCompatActivity() {
         binding = ActivityBBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //
+
         // Main'den gelen verileri almak için:
 
         val gelenMesaj = intent.getStringExtra("mesaj")
