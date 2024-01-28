@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_activity_nav">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
 
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.fatihakbulut.navigationcomponentkullanimi.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" />
+    <fragment
+        android:id="@+id/oyunEkraniFragment"
+        android:name="com.fatihakbulut.navigationcomponentkullanimi.OyunEkraniFragment"
+        android:label="fragment_oyun_ekrani"
+        tools:layout="@layout/fragment_oyun_ekrani" />
+    <fragment
+        android:id="@+id/sonucEkraniFragment"
+        android:name="com.fatihakbulut.navigationcomponentkullanimi.SonucEkraniFragment"
+        android:label="fragment_sonuc_ekrani"
+        tools:layout="@layout/fragment_sonuc_ekrani" />
 </navigation>
