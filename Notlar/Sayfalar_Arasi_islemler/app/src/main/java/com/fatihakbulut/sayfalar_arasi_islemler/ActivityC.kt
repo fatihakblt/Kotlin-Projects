@@ -15,7 +15,13 @@ class ActivityC : AppCompatActivity() {
         binding = ActivityCBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Butona tıklandığında D aktivitesine geçiş yapılır
+        binding.buttonGoToD.setOnClickListener {
+            val intent = Intent(this@ActivityC,ActivityD::class.java)
+            startActivity(intent)
+        }
     }
+
 
 
     // Back tuşuna basıldığında C sayfasından A sayfasına geçiş yapılır.
