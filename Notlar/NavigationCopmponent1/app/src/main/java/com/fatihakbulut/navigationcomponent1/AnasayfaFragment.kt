@@ -19,7 +19,24 @@ class AnasayfaFragment : Fragment() {
 
         binding.buttonBasla.setOnClickListener {
 
-            Navigation.findNavController(it).navigate(R.id.oyunEkraninaGecis) // Oyun ekranına yönlendirme
+            // Nesne sınıfından veri transferi
+            // Kisiler adında bir data class oluşturuldu (Veri transferi olacağı için data class oldu ve Serializable sınıfından extendd edildi!!!)
+            // oyunEkraniFragment'a Arguments attribute'una alınacak nesnenin ismi nesne olarak yazıldı.
+            // Nesnenin veri tipi Custom Serializable olarak seçildi
+            // Oluşturulmuş sınıf seçildi. Ve eklendi.
+
+            val kisi  = Kisiler(1,"Mehmet")
+
+
+
+            // oyunEkraniFragment'a Arguments attribute'una alınacak verilerin isimleri, veri tipleri, varsayılan değerleri eklendi.
+
+            val gecis = AnasayfaFragmentDirections.oyunEkraninaGecis(kisi,"Ahmet",18,1.78f,true)// Gönderilecek veri Direcitons eklentisi ile gönderilir ve hangi geçiş ile yapılacağı belirtilir.
+
+
+            // Veri aktarmadan geçiş için navigate(R.id.oyunEkraninaGecis) kullanıldı.
+
+            Navigation.findNavController(it).navigate(gecis) // Oyun ekranına yönlendirme !!veri aktarımı yapılarak.
         }
 
         return  binding.root
