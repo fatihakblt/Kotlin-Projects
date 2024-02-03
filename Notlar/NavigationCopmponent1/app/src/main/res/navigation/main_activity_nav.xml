@@ -21,7 +21,9 @@
         tools:layout="@layout/fragment_oyun_ekrani" >
         <action
             android:id="@+id/sonucEkraninaGecis"
-            app:destination="@id/sonucEkraniFragment" />
+            app:destination="@id/sonucEkraniFragment"
+            app:popUpTo="@id/oyunEkraniFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/sonucEkraniFragment"
