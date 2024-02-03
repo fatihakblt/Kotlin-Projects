@@ -7,6 +7,10 @@ android {
     namespace = "com.fatihakbulut.bottomnavigationkullanimi"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.fatihakbulut.bottomnavigationkullanimi"
         minSdk = 24
