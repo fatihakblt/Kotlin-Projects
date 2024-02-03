@@ -9,12 +9,20 @@
         android:id="@+id/anasayfaFragment"
         android:name="com.fatihakbulut.navigationcomponent1.AnasayfaFragment"
         android:label="fragment_anasayfa"
-        tools:layout="@layout/fragment_anasayfa" />
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/oyunEkraninaGecis"
+            app:destination="@id/oyunEkraniFragment" />
+    </fragment>
     <fragment
         android:id="@+id/oyunEkraniFragment"
         android:name="com.fatihakbulut.navigationcomponent1.OyunEkraniFragment"
         android:label="fragment_oyun_ekrani"
-        tools:layout="@layout/fragment_oyun_ekrani" />
+        tools:layout="@layout/fragment_oyun_ekrani" >
+        <action
+            android:id="@+id/sonucEkraninaGecis"
+            app:destination="@id/sonucEkraniFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sonucEkraniFragment"
         android:name="com.fatihakbulut.navigationcomponent1.SonucEkraniFragment"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.fatihakbulut.navigationcomponent1.databinding.FragmentAnasayfaBinding
 import com.fatihakbulut.navigationcomponent1.databinding.FragmentOyunEkraniBinding
 
@@ -18,6 +19,7 @@ class OyunEkraniFragment : Fragment() {
 
         binding.buttonBitir.setOnClickListener {
 
+            Navigation.findNavController(it).navigate(R.id.sonucEkraninaGecis) // Sonuç ekranına yönlendir.
 
         }
 
