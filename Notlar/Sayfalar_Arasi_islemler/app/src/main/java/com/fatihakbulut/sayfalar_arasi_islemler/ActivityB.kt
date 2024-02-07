@@ -12,7 +12,6 @@ class ActivityB : AppCompatActivity() {
     private lateinit var binding: ActivityBBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_b)
         binding = ActivityBBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
