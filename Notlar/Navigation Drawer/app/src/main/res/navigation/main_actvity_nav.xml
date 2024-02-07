@@ -2,9 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_activity_nav"
+    android:id="@+id/main_actvity_nav"
     app:startDestination="@id/birinciFragment">
-
     <fragment
         android:id="@+id/birinciFragment"
         android:name="com.fatihakbulut.navigationdrawer.BirinciFragment"
