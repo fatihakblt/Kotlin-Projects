@@ -3,6 +3,7 @@ package com.fatihakbulut.navigationdrawer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavHost
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -32,4 +33,23 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
     }
+
+    // NAVİGATİON DRAWER'IN GERİ TUŞU İLE KAPANMASI
+    // Navigation Drawer açık ise geri tuşuna basılınca kapanması, kapalı ise uygulamadan çıkılmasını sağlamamız gereklidir.
+    override fun onBackPressed() {
+
+        if (binding.drawer.isDrawerOpen(GravityCompat.START)) { // Drawer çekmecesi açıksa drawerden çıkma işlemi yapsın
+            binding.drawer.closeDrawer(GravityCompat.START)
+        }
+        else{
+            onBackPressedDispatcher.onBackPressed() // super.onBackPressed()
+
+        }
+
+        // Not : Fragmentlar açılmışsa geri tuşu önce bir önceki fragmentta dönemk için çalışır.
+        // Örn: 2.Fragment açıksa önce 1. Fragmenta geri döner sonra kapanır.
+
+    }
+
+
 }
