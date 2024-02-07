@@ -10,7 +10,6 @@ class ActivityD : AppCompatActivity() {
     private lateinit var binding: ActivityDBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_d)
         binding = ActivityDBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
