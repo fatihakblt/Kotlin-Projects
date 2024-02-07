@@ -2,6 +2,7 @@ package com.fatihakbulut.navigationdrawer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavHost
@@ -31,6 +32,14 @@ class MainActivity : AppCompatActivity() {
         val toggle = ActionBarDrawerToggle(this, binding.drawer,binding.toolbar,0,0)
         binding.drawer.addDrawerListener(toggle)
         toggle.syncState()
+
+
+        // Başlık ekleme
+
+        val baslik = binding.navigationView.inflateHeaderView(R.layout.navigation_baslik)
+        val textViewBaslik = baslik.findViewById(R.id.textViewBaslik) as TextView
+        textViewBaslik.text = "Merhaba"
+
 
     }
 
