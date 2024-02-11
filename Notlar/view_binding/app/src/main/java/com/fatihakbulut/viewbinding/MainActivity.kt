@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tasarim = ActivityMainBinding.inflate(layoutInflater) // 2
-        setContentView(R.layout.activity_main)
         setContentView(tasarim.root) // 3
 
 
