@@ -7,6 +7,9 @@ android {
     namespace = "com.fatihakbulut.webview"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.fatihakbulut.webview"
         minSdk = 24
