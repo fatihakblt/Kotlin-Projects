@@ -2,6 +2,7 @@ package com.fatihakbulut.progressbar_slider_ratingbar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.fatihakbulut.progressbar_slider_ratingbar.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -10,5 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        binding.buttonBasla.setOnClickListener {
+
+            binding.progressBar.visibility = View.VISIBLE // Görünür
+
+        }
+
+        binding.buttonDur.setOnClickListener {
+
+            binding.progressBar.visibility = View.INVISIBLE // Görünmez
+        }
     }
 }
