@@ -2,9 +2,11 @@ package com.fatihakbulut.progressbar_slider_ratingbar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.SeekBar
 import com.fatihakbulut.progressbar_slider_ratingbar.databinding.ActivityMainBinding
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -42,5 +44,15 @@ class MainActivity : AppCompatActivity() {
 
             }
         } )
+
+        binding.buttonGoster.setOnClickListener {
+
+            val gelenIlerleme = binding.seekBar.progress // ilerleme
+            val gelenOylama = binding.ratingBar.rating // oylama
+
+            Log.e("İlerleme", gelenIlerleme.toString())
+            Log.e("Oylama", gelenOylama.toString())
+        }
+
     }
 }
