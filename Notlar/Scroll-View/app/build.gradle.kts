@@ -7,6 +7,10 @@ android {
     namespace = "com.fatihakbulut.scroll_view"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.fatihakbulut.scroll_view"
         minSdk = 24
