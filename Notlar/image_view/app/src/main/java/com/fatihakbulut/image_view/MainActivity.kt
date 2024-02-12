@@ -13,12 +13,14 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.buttonResim1.setOnClickListener {
-            binding.imageView.setImageResource(R.drawable.resim1)
+
+            // Veri tabanı işlemlerinde dinamik erişim kullanılır.
+            binding.imageView.setImageResource(resources.getIdentifier("resim1","drawable",packageName))
         }
 
         binding.buttonResim2.setOnClickListener {
 
-            binding.imageView.setImageResource(R.drawable.resim)
+            binding.imageView.setImageResource(resources.getIdentifier("resim","drawable",packageName))
         }
 
     }
