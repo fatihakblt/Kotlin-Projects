@@ -19,7 +19,7 @@ class TahminActivity : AppCompatActivity() {
         binding = ActivityTahminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        rastgeleSayi = Random.nextInt(101) // 0 ile 100 arası rastgele sayı üretimi
+        rastgeleSayi = Random.nextInt(26) // 0 ile 100 arası rastgele sayı üretimi
 
         Log.e("Rastgele Sayı", rastgeleSayi.toString()) // Tahmin edilen sayının testi için konsola bilgi verilmesi
 
@@ -36,16 +36,17 @@ class TahminActivity : AppCompatActivity() {
 
                 val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
                 intent.putExtra("sonuc", true) // Cevabı doğru bildiği bilgisini sonraki sayfaya aktarma -kazandı.
+                intent.putExtra("sayi",rastgeleSayi)
                 finish()
                 startActivity(intent)
             }
-            if(tahmin > rastgeleSayi){
+            else if(tahmin > rastgeleSayi){
                 binding.textViewYardim.text = "Azalt"
                 binding.textViewKalanHak.text = "Kalan Hak : $sayac"
 
             }
 
-            if (tahmin < rastgeleSayi){
+            else if (tahmin < rastgeleSayi){
                 binding.textViewYardim.text = "Arttır"
                 binding.textViewKalanHak.text = "Kalan Hak : $sayac"
 
@@ -54,7 +55,7 @@ class TahminActivity : AppCompatActivity() {
             if (sayac == 0 ){
                 val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
                 intent.putExtra("sonuc", false) // Cevabı doğru bilemediği bilgisini sonraki sayfaya aktarma -kaybetti.
-
+                intent.putExtra("sayi", rastgeleSayi)
                 finish()
                 startActivity(intent)
 
