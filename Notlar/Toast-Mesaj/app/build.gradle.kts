@@ -7,6 +7,10 @@ android {
     namespace = "com.fatihakbulut.toastmesaj"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.fatihakbulut.toastmesaj"
         minSdk = 24
