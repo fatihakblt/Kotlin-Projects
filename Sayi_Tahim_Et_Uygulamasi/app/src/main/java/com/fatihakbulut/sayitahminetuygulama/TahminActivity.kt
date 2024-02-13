@@ -1,5 +1,6 @@
 package com.fatihakbulut.sayitahminetuygulama
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatihakbulut.sayitahminetuygulama.databinding.ActivityTahminBinding
@@ -11,5 +12,12 @@ class TahminActivity : AppCompatActivity() {
         binding = ActivityTahminBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.buttonTahmin.setOnClickListener {
+
+            val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
+            finish()
+            startActivity(intent)
+        }
     }
 }

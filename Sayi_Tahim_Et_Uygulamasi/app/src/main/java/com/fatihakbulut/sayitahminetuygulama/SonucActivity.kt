@@ -1,5 +1,6 @@
 package com.fatihakbulut.sayitahminetuygulama
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatihakbulut.sayitahminetuygulama.databinding.ActivitySonucBinding
@@ -12,5 +13,11 @@ class SonucActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.buttonTekrar.setOnClickListener {
+
+            val intent = Intent(this@SonucActivity,TahminActivity:: class.java)
+            finish()
+            startActivity(intent)
+        }
     }
 }
