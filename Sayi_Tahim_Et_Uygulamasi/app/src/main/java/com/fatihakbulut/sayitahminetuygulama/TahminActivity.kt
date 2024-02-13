@@ -32,6 +32,14 @@ class TahminActivity : AppCompatActivity() {
             sayac-=1 // Kalan hakkın azaltılması
             val tahmin = binding.editTextTahmin.text.toString().toInt() // edittextteki veri editable veri türünde olduğu için ilk başta string'e dönüştürüp sonra Int veri tipine dönüştürdük.
 
+            if (sayac == 0 ){
+                val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
+                intent.putExtra("sonuc", false) // Cevabı doğru bilemediği bilgisini sonraki sayfaya aktarma -kaybetti.
+                intent.putExtra("sayi", rastgeleSayi)
+                finish()
+                startActivity(intent)
+
+            }
             if (tahmin == rastgeleSayi){
 
                 val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
@@ -52,14 +60,7 @@ class TahminActivity : AppCompatActivity() {
 
 
             }
-            if (sayac == 0 ){
-                val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
-                intent.putExtra("sonuc", false) // Cevabı doğru bilemediği bilgisini sonraki sayfaya aktarma -kaybetti.
-                intent.putExtra("sayi", rastgeleSayi)
-                finish()
-                startActivity(intent)
 
-            }
 
             binding.editTextTahmin.setText("") // Her seferinde edittextin içini temizlemek için kullandık
 
