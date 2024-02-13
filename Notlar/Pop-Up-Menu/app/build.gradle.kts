@@ -7,6 +7,10 @@ android {
     namespace = "com.fatihakbulut.popupmenu"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.fatihakbulut.popupmenu"
         minSdk = 24
