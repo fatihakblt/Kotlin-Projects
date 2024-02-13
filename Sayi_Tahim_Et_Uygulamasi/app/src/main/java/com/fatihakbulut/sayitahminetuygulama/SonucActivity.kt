@@ -12,6 +12,15 @@ class SonucActivity : AppCompatActivity() {
         binding = ActivitySonucBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sonuc = intent.getBooleanExtra("sonuc",false) // Doğru sonuç gelemez ise false olur.
+
+        if (sonuc){
+            binding.textViewSonuc.text = "KAZANDINIZ"
+            binding.imageViewSonuc.setImageResource(R.drawable.mutlu1)
+        }else{
+            binding.textViewSonuc.text = "KAYBETTİNİZ"
+            binding.imageViewSonuc.setImageResource(R.drawable.uzgun)
+        }
 
         binding.buttonTekrar.setOnClickListener {
 

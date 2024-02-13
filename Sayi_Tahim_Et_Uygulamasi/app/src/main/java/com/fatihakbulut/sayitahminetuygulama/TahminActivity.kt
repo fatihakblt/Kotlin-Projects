@@ -27,11 +27,41 @@ class TahminActivity : AppCompatActivity() {
         binding.buttonTahmin.setOnClickListener {
 
 
-            //val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
-            //finish()
-            //startActivity(intent)
 
-            
+
+            sayac-=1 // Kalan hakkın azaltılması
+            val tahmin = binding.editTextTahmin.text.toString().toInt() // edittextteki veri editable veri türünde olduğu için ilk başta string'e dönüştürüp sonra Int veri tipine dönüştürdük.
+
+            if (tahmin == rastgeleSayi){
+
+                val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
+                intent.putExtra("sonuc", true) // Cevabı doğru bildiği bilgisini sonraki sayfaya aktarma -kazandı.
+                finish()
+                startActivity(intent)
+            }
+            if(tahmin > rastgeleSayi){
+                binding.textViewYardim.text = "Azalt"
+                binding.textViewKalanHak.text = "Kalan Hak : $sayac"
+
+            }
+
+            if (tahmin < rastgeleSayi){
+                binding.textViewYardim.text = "Arttır"
+                binding.textViewKalanHak.text = "Kalan Hak : $sayac"
+
+
+            }
+            if (sayac == 0 ){
+                val intent = Intent(this@TahminActivity,SonucActivity:: class.java)
+                intent.putExtra("sonuc", false) // Cevabı doğru bilemediği bilgisini sonraki sayfaya aktarma -kaybetti.
+
+                finish()
+                startActivity(intent)
+
+            }
+
+            binding.editTextTahmin.setText("") // Her seferinde edittextin içini temizlemek için kullandık
+
         }
     }
 }
