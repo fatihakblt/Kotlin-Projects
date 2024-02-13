@@ -6,21 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".SonucActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="407dp"
-        android:layout_height="321dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/üzgün" />
-
     <Button
         android:id="@+id/buttonTekrar"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="94dp"
         android:backgroundTint="#5C9A4B"
         android:text="TEKRAR OYNA"
         app:cornerRadius="10sp"
@@ -33,14 +23,25 @@
         android:id="@+id/textViewSonuc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="25dp"
         android:text="KAYBETTİNİZ"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonTekrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewSonuc"
+        android:layout_width="297dp"
+        android:layout_height="369dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSonuc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/uzgun" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
