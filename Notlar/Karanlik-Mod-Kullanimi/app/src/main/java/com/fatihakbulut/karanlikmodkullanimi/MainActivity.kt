@@ -2,6 +2,7 @@ package com.fatihakbulut.karanlikmodkullanimi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import com.fatihakbulut.karanlikmodkullanimi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,5 +12,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.buttonNormal.setOnClickListener {
+
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
+        }
+
+        binding.buttonKaranlik.setOnClickListener {
+
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
+        }
     }
 }

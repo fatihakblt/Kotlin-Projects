@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="yaziRenk">#27347E</color>
-    <color name="buttonRenk">#182568</color>
+    <color name="yaziRenk">#E48D0D</color>
+    <color name="buttonRenk">#DFAC60</color>
 
 </resources>
