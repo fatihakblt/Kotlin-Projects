@@ -1,5 +1,6 @@
 package com.fatihakbulut.snackbar
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatihakbulut.snackbar.databinding.ActivityMainBinding
@@ -19,12 +20,26 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.buttonGeriDonus.setOnClickListener {
+        binding.buttonGeriDonus.setOnClickListener {x ->
 
+            Snackbar.make(x, "Mesaj Silinsin mi?", Snackbar.LENGTH_SHORT)
+                .setAction("Evet"){y->
+                    Snackbar.make(y,"Mesaj Silindi", Snackbar.LENGTH_SHORT).show()
+                }
+                .show()
 
         }
 
-        binding.buttonOzel.setOnClickListener {
+        binding.buttonOzel.setOnClickListener {z->
+            val sb = Snackbar.make(z,"İnternet Bağlantısı Yok!", Snackbar.LENGTH_LONG)
+            sb.setAction("Tekrar Dene"){
+
+            }
+            sb.setActionTextColor(Color.RED)
+            sb.setTextColor(Color.BLUE)
+            sb.setBackgroundTint(Color.WHITE)
+
+            sb.show()
 
 
         }
