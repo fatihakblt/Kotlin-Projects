@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonOzel.setOnClickListener {z->
             val sb = Snackbar.make(z,"İnternet Bağlantısı Yok!", Snackbar.LENGTH_LONG)
-            sb.setAction("Tekrar Dene"){
+            sb.setAction("Tekrar Dene"){t->
+
+                Snackbar.make(t,"Bağlantı kuruldu.",Snackbar.LENGTH_SHORT).show()
 
             }
             sb.setActionTextColor(Color.RED)
