@@ -2,6 +2,7 @@ package com.fatihakbulut.materialdesigngiris
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.fatihakbulut.materialdesigngiris.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.fab.setOnClickListener {
+            Toast.makeText(applicationContext, "Merhaba", Toast.LENGTH_SHORT).show()
+        }
         
     }
 }
