@@ -13,6 +13,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.myToolbar.title ="Özel Toolbar Başlık"
+        binding.myToolbar.subtitle = "Özel Toolbar AltBaşlık"
+        binding.myToolbar.setLogo(R.drawable.resim)
+        setSupportActionBar(binding.myToolbar)
+
         binding.buttonYap.setOnClickListener {
             // Alınan metinlerdeki boşlukları silmek için trim metodu kullanıldı.(whitespace boşlukların silinmesi)
             val ad = binding.editTextAd.text.toString().trim()
