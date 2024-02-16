@@ -3,6 +3,7 @@ package com.fatihakbulut.floatinglabel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
 import android.widget.Toast
 import com.fatihakbulut.floatinglabel.databinding.ActivityMainBinding
 
@@ -13,10 +14,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Toolbar bilgilerinin girilmesi
         binding.myToolbar.title ="Özel Toolbar Başlık"
         binding.myToolbar.subtitle = "Özel Toolbar AltBaşlık"
         binding.myToolbar.setLogo(R.drawable.resim)
         setSupportActionBar(binding.myToolbar)
+
+
+
 
         binding.buttonYap.setOnClickListener {
             // Alınan metinlerdeki boşlukları silmek için trim metodu kullanıldı.(whitespace boşlukların silinmesi)
@@ -44,5 +49,12 @@ class MainActivity : AppCompatActivity() {
 
             Toast.makeText(this@MainActivity,"$ad - $tel",Toast.LENGTH_SHORT).show()
         }
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu,menu)
+        return true
     }
 }
