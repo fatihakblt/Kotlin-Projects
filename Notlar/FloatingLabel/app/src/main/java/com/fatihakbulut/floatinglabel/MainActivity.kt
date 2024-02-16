@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonYap.setOnClickListener {
-            val ad = binding.editTextAd.text.toString()
-            val tel = binding.editTextTel.text.toString()
+            // Alınan metinlerdeki boşlukları silmek için trim metodu kullanıldı.(whitespace boşlukların silinmesi)
+            val ad = binding.editTextAd.text.toString().trim()
+            val tel = binding.editTextTel.text.toString().trim()
 
 
             Toast.makeText(this@MainActivity,"$ad - $tel",Toast.LENGTH_SHORT).show()
