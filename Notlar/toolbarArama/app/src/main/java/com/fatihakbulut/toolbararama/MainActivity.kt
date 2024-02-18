@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener { // Me
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean { // Yazılan her harfteki arama sonucu  anlık olarak veriyor
+    override fun onQueryTextSubmit(query: String?): Boolean { // Arama tuşuna basıldığındaki arama sonucunu veriyor.
         Log.e("onQueryTextSubmit",query!!)
 
         return true
     }
 
-    override fun onQueryTextChange(newText: String?): Boolean { // Arama tuşuna basıldığındaki arama sonucunu veriyor.
+    override fun onQueryTextChange(newText: String?): Boolean { // Yazılan her harfteki arama sonucu  anlık olarak veriyor
         Log.e("onQueryTextChange",newText!!)
         return true
     }
