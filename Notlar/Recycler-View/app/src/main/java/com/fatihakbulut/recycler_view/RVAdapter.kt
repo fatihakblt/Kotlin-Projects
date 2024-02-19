@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import java.math.MathContext
@@ -58,6 +59,33 @@ class RVAdapter(private val mContext:Context, private val ulkelerDisaridanGelenL
         holder.satirCardView.setOnClickListener{
             Toast.makeText(mContext,"Seçtiğiniz Ülke : ${ulke.ulkeAdi}",Toast.LENGTH_SHORT).show()
         }
+
+        holder.noktaResim.setOnClickListener{
+            val popup = PopupMenu(mContext, holder.noktaResim) // Hangi context'te ve hangi öğe gösterecek
+            popup.menuInflater.inflate(R.menu.popup_menu,popup.menu)
+            popup.show()
+
+            popup.setOnMenuItemClickListener {item->
+
+                when(item.itemId){
+                    R.id.action_sil ->{
+                        Toast.makeText(mContext,"Sil : ${ulke.ulkeAdi}",Toast.LENGTH_SHORT).show()
+                        true
+                    }
+
+                    R.id.action_duzenle ->{
+                        Toast.makeText(mContext,"Düzenle : ${ulke.ulkeAdi}",Toast.LENGTH_SHORT).show()
+
+                        true
+                    }
+
+                    else -> false
+                }
+
+            }
+        }
+
+
 
     }
 
