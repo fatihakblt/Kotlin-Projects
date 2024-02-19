@@ -3,6 +3,7 @@ package com.fatihakbulut.recycler_view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.fatihakbulut.recycler_view.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +17,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rv.setHasFixedSize(true) // Tasarım üzerine oturmasını sağlar.
-        binding.rv.layoutManager = LinearLayoutManager(this) // Listenin görünümünü belirteceğiz
+        //binding.rv.layoutManager = LinearLayoutManager(this) // Listenin görünümünü belirteceğiz
 
+        binding.rv.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL)
         val u1= Ulkeler(1,"Türkiye")
         val u2= Ulkeler(2,"İtalya")
         val u3= Ulkeler(3,"Fransa")
