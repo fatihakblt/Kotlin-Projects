@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         fragmentListesi.add(FragmentUcuncu())
 
         // View Pager'a ulaşma
+        // View Pager'in amacı Fragmnetları göstermektir.
         val adapter  = MYViewPagerAdapter(this)
         binding.viewPager2.adapter = adapter
 
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         }.attach()
 
         // .attach() ile tabloyout ile viewpager birleştirilmiş oluyor senkronize çalışması sağlanıyor.
+
+        // 0 indis nolu Tab'a icon eklenmesi -- yani "Bir" başlıklı taba ----
+        binding.tabLayout.getTabAt(0)!!.setIcon(R.drawable.resim)
 
     }
 
