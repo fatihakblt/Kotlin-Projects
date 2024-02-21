@@ -18,7 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         val editor = sp.edit()
 
-        editor.putString("ad","Ahmet")
+        // Lokal bellekteki verinin silinmesi için "key" değerinin verilmesi yeterlidir.
+        editor.remove("ad")
+
+        // İşlemin gerçekleştirilmesi için commit() edilmesi gerekli.
+        editor.commit()
+
+        /*editor.putString("ad","Ahmet")
         editor.putInt("yas",18)
         editor.putFloat("boy",1.78f)
         editor.putBoolean("bekarMi",true)
@@ -29,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         arkadasListesi.add("Ali")
 
         editor.putStringSet("arkadasListesi",arkadasListesi)
-        editor.commit()
+        editor.commit() */
 
         binding.buttonGit.setOnClickListener {
 
