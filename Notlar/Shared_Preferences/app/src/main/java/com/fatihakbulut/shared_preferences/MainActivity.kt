@@ -1,5 +1,7 @@
 package com.fatihakbulut.shared_preferences
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatihakbulut.shared_preferences.databinding.ActivityMainBinding
@@ -11,6 +13,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
+
+        val sp = getSharedPreferences("KişiselBilgiler", Context.MODE_PRIVATE)
+
+        val editor = sp.edit()
+
+        editor.putString("ad","Ahmet")
+        editor.putInt("yas",18)
+        editor.putFloat("boy",1.78f)
+        editor.putBoolean("bekarMi",true)
+
+        val arkadasListesi = HashSet<String>()
+        arkadasListesi.add("Zeynep")
+        arkadasListesi.add("Ece")
+        arkadasListesi.add("Ali")
+
+        editor.putStringSet("arkadasListesi",arkadasListesi)
+        editor.commit()
+
+        binding.buttonGit.setOnClickListener {
+
+            startActivity(Intent(this@MainActivity,ActivityB::class.java))
+
+        }
+
     }
 }
