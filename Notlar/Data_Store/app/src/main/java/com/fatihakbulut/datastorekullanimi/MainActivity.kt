@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
             val gelenAd = ap.okuAd()
             Log.e("Gelen Ad", gelenAd)
-            
+
         }
 
     }
