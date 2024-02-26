@@ -1,5 +1,6 @@
 package com.fatihakbulut.depolama_islemleri
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.fatihakbulut.depolama_islemleri.databinding.ActivityMainBinding
@@ -8,6 +9,8 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -20,21 +23,26 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonYaz.setOnClickListener {
 
-            hariciYaz()
+
+            dahiliYaz()
+            //hariciYaz()
 
         }
 
         binding.buttonOku.setOnClickListener {
 
-            hariciOku()
+            dahiliOku()
+            //hariciOku()
         }
 
         binding.buttonSil.setOnClickListener {
 
-            hariciSil()
+            dahiliSil()
+            //hariciSil()
         }
     }
 
+    // Harici depolama üzerindeki işlemler
     fun hariciYaz(){
 
         try {
@@ -104,4 +112,68 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
+
+    // Dahili depolama üzerindeki işlemler
+
+
+    fun dahiliYaz(){
+        try {
+            val fo = openFileOutput("dosyam.txt",Context.MODE_PRIVATE)
+
+            val yazici = OutputStreamWriter(fo)
+
+            yazici.write(binding.editTextGirdi.text.toString())
+            yazici.close()
+
+            binding.editTextGirdi.setText("")
+
+
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
+
+    }
+    fun dahiliOku(){
+        try {
+
+            val fi = openFileInput("dosyam.txt")
+            val isr = InputStreamReader(fi)
+
+            val okuyucu = BufferedReader(isr)
+
+            val sb = StringBuilder()
+            var satir: String? = null
+
+            while ({satir = okuyucu.readLine();satir}() != null){
+                sb.append(satir+"\n")
+            }
+            okuyucu.close()
+            binding.editTextGirdi.setText(sb.toString())
+
+
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
+
+    }
+
+    fun dahiliSil(){
+        try {
+
+            val yol = filesDir
+            val dosya = File(yol,"dosyam.txt")
+
+            dosya.delete()
+
+        }catch (e : Exception){
+            e.printStackTrace()
+        }
+
+
+    }
+
+
+
 }
