@@ -85,6 +85,6 @@ class AppPref(var context: Context) {
 
     suspend fun  okuArkadasListe(): Set<String>?{
         val p = context.ds.data.first()
-        return p[ARKADAS_LISTE_KEY] 
+        return p[ARKADAS_LISTE_KEY]
     }
 }

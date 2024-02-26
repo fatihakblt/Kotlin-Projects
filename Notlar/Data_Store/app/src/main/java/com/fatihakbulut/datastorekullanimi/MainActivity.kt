@@ -18,12 +18,40 @@ class MainActivity : AppCompatActivity() {
 
         val ap =  AppPref(this)
         val job = CoroutineScope(Dispatchers.Main).launch {
+           // Kayıt
             ap.kayitAd("Ahmet")
+            ap.kayitYas(23)
+            ap.kayitBoy(1.78)
+            ap.kayitBekar(true)
 
+            // Liste Kayıt
+            val liste = HashSet<String>()
+            liste.add("Mehmet")
+            liste.add("Zeynep")
+
+            ap.kayitArkadasListe(liste)
+
+
+            // Okuma
             val gelenAd = ap.okuAd()
+            val gelenYas = ap.okuYas()
+            val gelenBoy = ap.okuBoy()
+            val gelenBekar = ap.okuAd()
+
             Log.e("Gelen Ad", gelenAd)
+            Log.e("Gelen Yaş", gelenYas.toString())
+            Log.e("Gelen Boy", gelenBoy.toString())
+            Log.e("Gelen Bekar", gelenBekar.toString())
 
+            // Liste okuma
+
+            val gelenListe = ap.okuArkadasListe()
+
+            if (gelenListe != null){
+                for (a in gelenListe){
+                    Log.e("Gelen Arkadaş", a)
+                }
+            }
         }
-
     }
 }
