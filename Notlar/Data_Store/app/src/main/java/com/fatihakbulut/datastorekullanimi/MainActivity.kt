@@ -52,6 +52,12 @@ class MainActivity : AppCompatActivity() {
                     Log.e("Gelen Arkadaş", a)
                 }
             }
+
+            // Sayac okuma işlemi
+
+            var gelenSayac = ap.okuSayac()
+            ap.kayitSayac(++gelenSayac)
+            binding.textViewSayac.text = "Açılış sayısı : $gelenSayac"
         }
     }
 }
