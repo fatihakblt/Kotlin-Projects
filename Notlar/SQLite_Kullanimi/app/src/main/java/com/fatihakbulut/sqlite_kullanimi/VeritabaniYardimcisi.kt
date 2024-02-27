@@ -1,4 +1,7 @@
 package com.fatihakbulut.sqlite_kullanimi
+//
+// Veritababanını temsil eden sınıf
+
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

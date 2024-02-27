@@ -1,5 +1,5 @@
 package com.fatihakbulut.sqlite_kullanimi
-
+// Veritabaındaki tablomuzu temsil eden sınıf
 // Veritabanındaki her bir tablo için bir sınıf oluşturulmalı.
 data class Kisiler(var kisi_no : Int,
               var kisi_ad: String,

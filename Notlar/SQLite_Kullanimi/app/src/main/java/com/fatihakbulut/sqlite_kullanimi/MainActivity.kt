@@ -11,6 +11,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val vt = VeritabaniYardimcisi(this)
+
+        // Veri kaydı işlemi
+        Kisilerdao().kisiEkle(vt,"Ahmet", "99999999", 18,1.78) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
+
+
+        
 
     }
 }
