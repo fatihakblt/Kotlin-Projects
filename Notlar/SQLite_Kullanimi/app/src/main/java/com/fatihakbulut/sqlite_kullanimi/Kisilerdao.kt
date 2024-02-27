@@ -1,5 +1,6 @@
 package com.fatihakbulut.sqlite_kullanimi
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 
 // Tablo  üzerindeki işlemleri temsil eden sınıf- Tablo isminin sonuna -dao eklenerek oluşturulur.
@@ -22,6 +23,34 @@ class Kisilerdao {
         db.close()  // Veritabanı bağlantısının kesilmesi
 
     }
+
+
+    // Select - Veri okuma
+    @SuppressLint("Range")
+    fun tumKisiler(vt:VeritabaniYardimcisi) : ArrayList<Kisiler>{
+
+        val kisilerArrayList = ArrayList<Kisiler>()
+        val db = vt.readableDatabase // Veritabanı yardımcısını kullanarak yazma işlemi yetkisi aldık.
+
+        val cursor = db.rawQuery("SELECT * FROM kisiler", null)
+
+        while (cursor.moveToNext()){ // Satırları okumka için kullandığımız metod
+
+            val kisi = Kisiler(cursor.getInt(cursor.getColumnIndex("kisi_no"))
+                ,cursor.getString(cursor.getColumnIndex("kisi_ad"))
+                ,cursor.getString(cursor.getColumnIndex("kisi_tel"))
+                ,cursor.getInt(cursor.getColumnIndex("kisi_yas"))
+                ,cursor.getDouble(cursor.getColumnIndex("kisi_boy")))
+
+            kisilerArrayList.add(kisi)
+
+
+        }
+        return kisilerArrayList
+
+
+    }
+
 
 
 }
