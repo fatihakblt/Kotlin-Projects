@@ -21,9 +21,13 @@ class MainActivity : AppCompatActivity() {
         //Kisilerdao().kisiEkle(vt,"Ali", "74545676", 9,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
 
 
+        // Veri silme
+
+        Kisilerdao().kisiSil(vt,3) // kisi_no'su 3 olan kişiyi siler.
+
         // Veri güncelleme
 
-        Kisilerdao().kisiGuncelle(vt,3,"Yeni Mehmet","111",100, 1.22)
+        //Kisilerdao().kisiGuncelle(vt,3,"Yeni Mehmet","111",100, 1.22)
 
 
         // Veri okuma işlemi

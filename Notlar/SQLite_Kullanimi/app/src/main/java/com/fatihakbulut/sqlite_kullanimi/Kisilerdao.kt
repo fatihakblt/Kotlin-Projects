@@ -24,6 +24,16 @@ class Kisilerdao {
 
     }
 
+    // Veri silme işlemi
+
+    fun kisiSil(vt:VeritabaniYardimcisi, kisi_no: Int){
+        val db = vt.writableDatabase
+        db.delete("kisiler","kisi_no=?", arrayOf(kisi_no.toString()))
+
+        db.close()
+    }
+
+
     // Veri güncelleme işlemi
     fun kisiGuncelle(vt:VeritabaniYardimcisi,kisi_no:Int, kisi_ad:String, kisi_tel:String, kisi_yas:Int, kisi_boy:Double){
 
