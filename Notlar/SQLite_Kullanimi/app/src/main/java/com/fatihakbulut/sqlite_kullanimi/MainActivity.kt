@@ -14,10 +14,16 @@ class MainActivity : AppCompatActivity() {
 
         val vt = VeritabaniYardimcisi(this)
 
+
         // Veri kaydı işlemi
-        Kisilerdao().kisiEkle(vt,"Mehmet", "45345435", 16,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
-        Kisilerdao().kisiEkle(vt,"Zeynep", "64534534", 12,1.55) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
-        Kisilerdao().kisiEkle(vt,"Ali", "74545676", 9,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
+        //Kisilerdao().kisiEkle(vt,"Mehmet", "45345435", 16,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
+        //Kisilerdao().kisiEkle(vt,"Zeynep", "64534534", 12,1.55) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
+        //Kisilerdao().kisiEkle(vt,"Ali", "74545676", 9,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
+
+
+        // Veri güncelleme
+
+        Kisilerdao().kisiGuncelle(vt,3,"Yeni Mehmet","111",100, 1.22)
 
 
         // Veri okuma işlemi
@@ -33,4 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 }
