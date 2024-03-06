@@ -21,26 +21,39 @@ class MainActivity : AppCompatActivity() {
         //Kisilerdao().kisiEkle(vt,"Ali", "74545676", 9,1.60) // Kisilerdao sınıfından sanal nesne oluşturulup fonksiyona erişildi.
 
 
-        // Veri silme
 
-        Kisilerdao().kisiSil(vt,3) // kisi_no'su 3 olan kişiyi siler.
+        // Veri silme
+        //Kisilerdao().kisiSil(vt,3) // kisi_no'su 3 olan kişiyi siler.
+
 
         // Veri güncelleme
-
         //Kisilerdao().kisiGuncelle(vt,3,"Yeni Mehmet","111",100, 1.22)
 
 
-        // Veri okuma işlemi
+        // Veri arama işlemi
 
-        val kisiListe = Kisilerdao().tumKisiler(vt) // Veri tabanından alınan nesnelerin verilerine bu arrayList ile satır satır ulaşılması.
-
+        val kisiListe = Kisilerdao().arama(vt,"e") // kisi_ad'ında "e" harfi içeren kişileri listeler
         for (k in kisiListe){
             Log.e("Kişi no",(k.kisi_no).toString())
             Log.e("Kişi ad",(k.kisi_ad))
             Log.e("Kişi tel",(k.kisi_tel))
-            Log.e("Kişi boy",(k.kisi_boy).toString())
+            Log.e("Kişi boy",(k.kisi_boy).toString())}
 
-        }
+
+
+            /*
+                    // Veri okuma işlemi
+                    val kisiListe = Kisilerdao().tumKisiler(vt) // Veri tabanından alınan nesnelerin verilerine bu arrayList ile satır satır ulaşılması.
+
+                    for (k in kisiListe){
+                        Log.e("Kişi no",(k.kisi_no).toString())
+                        Log.e("Kişi ad",(k.kisi_ad))
+                        Log.e("Kişi tel",(k.kisi_tel))
+                        Log.e("Kişi boy",(k.kisi_boy).toString())
+
+                    }*/
+
+
 
     }
 
