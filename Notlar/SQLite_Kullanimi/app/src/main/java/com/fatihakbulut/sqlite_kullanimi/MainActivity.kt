@@ -50,10 +50,20 @@ class MainActivity : AppCompatActivity() {
 
         }*/
 
-        // Kayıt kontrol işlemi
+        /*// Kayıt kontrol işlemi
         val sonuc = Kisilerdao().kayitKontrol(vt,"Ahmet")
-        Log.e("Kayıt Kontrol",sonuc.toString())
+        Log.e("Kayıt Kontrol",sonuc.toString())*/
 
+
+        // Bir tane kayıt alma
+        val kisi = Kisilerdao().kisiGetir(vt,4)  // 4 numaralı kişiyi getir.
+        if (kisi != null){
+            Log.e("Kişi no 4",(kisi.kisi_no).toString())
+            Log.e("Kişi ad 4",(kisi.kisi_ad))
+            Log.e("Kişi tel 4",(kisi.kisi_tel))
+            Log.e("Kişi boy 4",(kisi.kisi_boy).toString())
+
+        }
 
         // Veri okuma işlemi
        val kisiListe = Kisilerdao().tumKisiler(vt) // Veri tabanından alınan nesnelerin verilerine bu arrayList ile satır satır ulaşılması.

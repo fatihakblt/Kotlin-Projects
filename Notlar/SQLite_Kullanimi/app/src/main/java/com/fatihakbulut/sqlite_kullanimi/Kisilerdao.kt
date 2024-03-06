@@ -149,6 +149,8 @@ class Kisilerdao {
         }
         return kisilerArrayList
     }
+
+    // Kayıt kontrol
     @SuppressLint("Range")
 
     fun kayitKontrol(vt:VeritabaniYardimcisi,kisi_ad: String): Int{
@@ -167,5 +169,30 @@ class Kisilerdao {
         return  sonuc
 
     }
+
+    // Bir tane kayıt alma
+    @SuppressLint("Range")
+    fun kisiGetir(vt: VeritabaniYardimcisi,kisi_no: Int): Kisiler? {
+
+        var gelenKisi : Kisiler? = null
+
+        val db =
+            vt.writableDatabase // Veritabanı yardımcısını kullanarak yazma işlemi yetkisi aldık.
+
+        val cursor = db.rawQuery("SELECT * FROM kisiler WHERE kisi_no=$kisi_no",null)
+
+        while (cursor.moveToNext()) { // Satırları okumka için kullandığımız metod
+            gelenKisi = Kisiler(
+                cursor.getInt(cursor.getColumnIndex("kisi_no")),
+                cursor.getString(cursor.getColumnIndex("kisi_ad")),
+                cursor.getString(cursor.getColumnIndex("kisi_tel")),
+                cursor.getInt(cursor.getColumnIndex("kisi_yas")),
+                cursor.getDouble(cursor.getColumnIndex("kisi_boy"))
+            )
+
+        }
+        return gelenKisi
+    }
+
 
 }
