@@ -149,5 +149,23 @@ class Kisilerdao {
         }
         return kisilerArrayList
     }
+    @SuppressLint("Range")
+
+    fun kayitKontrol(vt:VeritabaniYardimcisi,kisi_ad: String): Int{
+
+        var sonuc = 0
+
+        val db = vt.writableDatabase
+        val cursor = db.rawQuery("SELECT count(*) AS sonuc FROM kisiler WHERE kisi_ad='$kisi_ad'", null) // Rastgele 2 veri okur
+
+
+        while (cursor.moveToNext()){ // Kaç adet cursor nesnesi oluşursa o kadar çalış.
+
+            sonuc = cursor.getInt(cursor.getColumnIndex("sonuc"))
+
+        }
+        return  sonuc
+
+    }
 
 }
