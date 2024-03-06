@@ -123,4 +123,31 @@ class Kisilerdao {
         return kisilerArrayList
     }
 
+    // Rastgele ve sınırlı veri almma
+    @SuppressLint("Range")
+    fun rastgeleGetir(vt: VeritabaniYardimcisi): ArrayList<Kisiler> {
+
+        val kisilerArrayList = ArrayList<Kisiler>()
+        val db =
+            vt.readableDatabase // Veritabanı yardımcısını kullanarak yazma işlemi yetkisi aldık.
+
+        val cursor = db.rawQuery("SELECT * FROM kisiler ORDER BY RANDOM() LIMIT 2", null) // Rastgele 2 veri okur
+
+        while (cursor.moveToNext()) { // Satırları okumak için kullandığımız metod
+
+            val kisi = Kisiler(
+                cursor.getInt(cursor.getColumnIndex("kisi_no")),
+                cursor.getString(cursor.getColumnIndex("kisi_ad")),
+                cursor.getString(cursor.getColumnIndex("kisi_tel")),
+                cursor.getInt(cursor.getColumnIndex("kisi_yas")),
+                cursor.getDouble(cursor.getColumnIndex("kisi_boy"))
+            )
+
+            kisilerArrayList.add(kisi)
+
+
+        }
+        return kisilerArrayList
+    }
+
 }

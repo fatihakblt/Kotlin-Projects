@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         // Veri güncelleme
         //Kisilerdao().kisiGuncelle(vt,3,"Yeni Mehmet","111",100, 1.22)
 
-
+/*
         // Veri arama işlemi
 
         val kisiListe = Kisilerdao().arama(vt,"e") // kisi_ad'ında "e" harfi içeren kişileri listeler
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             Log.e("Kişi tel",(k.kisi_tel))
             Log.e("Kişi boy",(k.kisi_boy).toString())}
 
-
+*/
 
             /*
                     // Veri okuma işlemi
@@ -54,7 +54,16 @@ class MainActivity : AppCompatActivity() {
                     }*/
 
 
+        // Rastgele verileri okuma işlemi
+        val kisiListe = Kisilerdao().rastgeleGetir(vt)
 
+        for (k in kisiListe){
+            Log.e("Kişi no",(k.kisi_no).toString())
+            Log.e("Kişi ad",(k.kisi_ad))
+            Log.e("Kişi tel",(k.kisi_tel))
+            Log.e("Kişi boy",(k.kisi_boy).toString())
+
+        }
     }
 
 
