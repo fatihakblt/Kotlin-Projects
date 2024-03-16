@@ -8,16 +8,6 @@ class VeritabaniYardimcisi(context:Context) : SQLiteOpenHelper(context,"filmler.
 
     // Tabloların oluşturulduğu yer
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE IF NOT EXISTS \"filmler\" (\n" +
-                "\t`film_id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "\t`film_ad`\tTEXT,\n" +
-                "\t`film_yil`\tINTEGER,\n" +
-                "\t`film_resim`\tTEXT,\n" +
-                "\t`kategori_id`\tINTEGER,\n" +
-                "\t`yonetmen_id`\tINTEGER,\n" +
-                "\tFOREIGN KEY(`kategori_id`) REFERENCES `kategoriler`(`kategoril_id`),\n" +
-                "\tFOREIGN KEY(`yonetmen_id`) REFERENCES `yonetmenler`(`yonetmen_id`)\n" +
-                ")")
 
 
         db?.execSQL("CREATE TABLE IF NOT EXISTS kategoriler  (\n" +
@@ -30,6 +20,18 @@ class VeritabaniYardimcisi(context:Context) : SQLiteOpenHelper(context,"filmler.
                 "yonetmen_id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "yonetmen_ad TEXT\n" +
                 ")")
+
+        db?.execSQL("CREATE TABLE IF NOT EXISTS \"filmler\" (\n" +
+                "\t`film_id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "\t`film_ad`\tTEXT,\n" +
+                "\t`film_yil`\tINTEGER,\n" +
+                "\t`film_resim`\tTEXT,\n" +
+                "\t`kategori_id`\tINTEGER,\n" +
+                "\t`yonetmen_id`\tINTEGER,\n" +
+                "\tFOREIGN KEY(`kategori_id`) REFERENCES `kategoriler`(`kategoril_id`),\n" +
+                "\tFOREIGN KEY(`yonetmen_id`) REFERENCES `yonetmenler`(`yonetmen_id`)\n" +
+                ")")
+
 
     }
 

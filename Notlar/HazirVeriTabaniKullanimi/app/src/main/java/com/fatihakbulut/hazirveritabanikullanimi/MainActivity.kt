@@ -2,6 +2,7 @@ package com.fatihakbulut.hazirveritabanikullanimi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.fatihakbulut.hazirveritabanikullanimi.databinding.ActivityMainBinding
 import com.info.sqlitekullanimihazirveritabani.DatabaseCopyHelper
 
@@ -13,6 +14,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         veritabaniKopyala()
+
+        val vt = VeritabaniYardimcisi(this)
+        val liste = Kategorilerdao().tumKategoriler(vt)
+
+        for (k in liste){
+            Log.e("Kategori id", k.kategori_id.toString())
+            Log.e("Kategori ad", k.kategori_ad)
+
+        }
 
     }
 
