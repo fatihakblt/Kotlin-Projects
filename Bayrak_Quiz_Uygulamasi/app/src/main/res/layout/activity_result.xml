@@ -14,8 +14,10 @@
         android:text="3 DOĞRU 2YANLIŞ"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="66dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewYuzdeSonuc"
@@ -26,15 +28,19 @@
         android:textColor="#C82B2B"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSonuc"
-        tools:layout_editor_absoluteX="134dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSonuc" />
 
     <Button
         android:id="@+id/buttonTekrar"
         android:layout_width="300dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="131dp"
+        android:layout_marginBottom="188dp"
         android:text="TEKRAR DENE"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="55dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
