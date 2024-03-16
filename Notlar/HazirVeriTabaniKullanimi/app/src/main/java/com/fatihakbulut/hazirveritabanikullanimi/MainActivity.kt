@@ -16,11 +16,19 @@ class MainActivity : AppCompatActivity() {
         veritabaniKopyala()
 
         val vt = VeritabaniYardimcisi(this)
-        val liste = Kategorilerdao().tumKategoriler(vt)
+        //val liste = Kategorilerdao().tumKategoriler(vt)
 
-        for (k in liste){
-            Log.e("Kategori id", k.kategori_id.toString())
-            Log.e("Kategori ad", k.kategori_ad)
+        val liste = Filmlerdao().tumFilmlerByKategoriId(vt,2)
+
+        for (f in liste){
+            Log.e("Film id", f.film_id.toString())
+            Log.e("Film Kategori ad", f.film_ad)
+            Log.e("Film Kategori yıl", f.film_yil.toString())
+            Log.e("Film Kategori resim", f.film_resim)
+            Log.e("Film Kategori id", f.kategori.kategori_id.toString())
+            Log.e("Film Kategori ad", f.kategori.kategori_ad)
+            Log.e("Film yönetmen id", f.yonetmen.yonetmen_id.toString())
+            Log.e("Film yönetmen ad", f.yonetmen.yonetmen_ad)
 
         }
 
