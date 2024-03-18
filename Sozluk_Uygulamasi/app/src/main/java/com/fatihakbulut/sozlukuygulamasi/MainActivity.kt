@@ -2,10 +2,13 @@ package com.fatihakbulut.sozlukuygulamasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatihakbulut.sozlukuygulamasi.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
     private lateinit var kelimelerListe:ArrayList<Kelimeler> // Veri kümemiz
     private lateinit var adapter: KelimelerAdapter // Adapter sınıfından boş bir nesne oluşturduk.
 
@@ -32,5 +35,25 @@ class MainActivity : AppCompatActivity() {
         adapter = KelimelerAdapter(this,kelimelerListe)
         binding.rv.adapter = adapter
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu,menu)
+
+        val item = menu?.findItem(R.id.action_ara)
+        val searchView = item?.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        Log.e("Gönderilen arama",query.toString())
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        Log.e("Harf girdikçe",newText.toString())
+        return true
     }
 }
