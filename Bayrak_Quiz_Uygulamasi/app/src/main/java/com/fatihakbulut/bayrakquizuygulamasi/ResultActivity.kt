@@ -12,6 +12,11 @@ class ResultActivity : AppCompatActivity() {
         binding  = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val dogruSayac = intent.getIntExtra("dogruSayac",0)
+
+        binding.textViewSonuc.text = "$dogruSayac DOĞRU ${5-dogruSayac} YANLIŞ"
+        binding.textViewYuzdeSonuc.text = "% ${(dogruSayac*100)/5} BAŞARI"
+
         binding.buttonTekrar.setOnClickListener {
             startActivity(Intent(this@ResultActivity,QuizActivity::class.java))
             finish()
