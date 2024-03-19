@@ -26,7 +26,7 @@ class Kelimelerdao {
     fun aramaYap(vt:VeritabaniYardimcisi,aramaKelime:String) : ArrayList<Kelimeler>{
         val kelimelerListe = ArrayList<Kelimeler>()
         val db = vt.writableDatabase
-        val c = db.rawQuery("SELECT * FROM kelimeler WHERE ingilizce like '$aramaKelime'",null)
+        val c = db.rawQuery("SELECT * FROM kelimeler WHERE ingilizce like '%$aramaKelime%'",null)
 
         while (c.moveToNext()){
             val kelime = Kelimeler(c.getInt(c.getColumnIndex("kelime_id"))

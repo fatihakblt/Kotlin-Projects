@@ -47,13 +47,15 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        Log.e("Gönderilen arama",query.toString())
+    override fun onQueryTextSubmit(query: String): Boolean {
+        arama(query)
+        //Log.e("Gönderilen arama",query.toString())
         return true
     }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
-        Log.e("Harf girdikçe",newText.toString())
+    override fun onQueryTextChange(newText: String): Boolean {
+        arama(newText)
+        //Log.e("Harf girdikçe",newText.toString())
         return true
     }
 
@@ -65,5 +67,11 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
         }catch (e:Exception){
             e.printStackTrace()
         }
+    }
+
+    fun arama(aramaKelime:String){
+        kelimelerListe = Kelimelerdao().aramaYap(vt,aramaKelime)
+        adapter = KelimelerAdapter(this,kelimelerListe)
+        binding.rv.adapter = adapter
     }
 }
