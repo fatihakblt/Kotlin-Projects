@@ -7,6 +7,7 @@ import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatihakbulut.sozlukuygulamasi.databinding.ActivityMainBinding
+import com.info.sqlitekullanimihazirveritabani.DatabaseCopyHelper
 
 class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
     private lateinit var kelimelerListe:ArrayList<Kelimeler> // Veri kümemiz
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        veritabaniKopyala() // Uygulama açıldığında veritabanı kopyalama işlemi uygulanır
 
         binding.toolbar.title = "Sözlük Uygulaması"
         setSupportActionBar(binding.toolbar)
@@ -55,5 +58,15 @@ class MainActivity : AppCompatActivity(),SearchView.OnQueryTextListener {
     override fun onQueryTextChange(newText: String?): Boolean {
         Log.e("Harf girdikçe",newText.toString())
         return true
+    }
+
+    fun veritabaniKopyala(){
+        val copyHelper = DatabaseCopyHelper(this)
+        try {
+            copyHelper.createDataBase()
+            copyHelper.openDataBase()
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 }
