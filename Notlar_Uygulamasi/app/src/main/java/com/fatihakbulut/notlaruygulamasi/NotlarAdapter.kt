@@ -51,7 +51,7 @@ class NotlarAdapter(private val mContext:Context, private val notlarListe:List<N
         holder.textViewNot2.text = (not.not2).toString()
 
         holder.not_card.setOnClickListener{
-            
+
         }
 
 
