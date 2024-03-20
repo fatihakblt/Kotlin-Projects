@@ -1,5 +1,6 @@
 package com.fatihakbulut.notlaruygulamasi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         // Floating Action Button işlemleri
         binding.fab.setOnClickListener {
 
+            startActivity(Intent(this@MainActivity,NotKayitActivity::class.java))
         }
 
     }
