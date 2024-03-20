@@ -1,6 +1,7 @@
 package com.fatihakbulut.notlaruygulamasi
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class NotlarAdapter(private val mContext:Context, private val notlarListe:List<N
 
 
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardTasarimTutucu {
@@ -50,7 +52,11 @@ class NotlarAdapter(private val mContext:Context, private val notlarListe:List<N
         holder.textViewNot1.text = (not.not1).toString()
         holder.textViewNot2.text = (not.not2).toString()
 
-        holder.not_card.setOnClickListener{
+        holder.not_card.setOnClickListener{// Not kart nesnesine tıklandığında...
+            val intent = Intent(mContext,DetayActivity::class.java)
+            intent.putExtra("nesne",not)
+            mContext.startActivity(intent)
+
 
         }
 
