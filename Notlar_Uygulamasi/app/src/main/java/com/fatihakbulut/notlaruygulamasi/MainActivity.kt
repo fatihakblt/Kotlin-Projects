@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     // Global nesne tanımlanması
     private lateinit var notlarListe:ArrayList<Notlar>
     private lateinit var adapter: NotlarAdapter
+    private lateinit var vt:VeritabaniYardimcisi
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         // Toolbar işlemleri
         binding.toolbar.title = "Notlar Uygulaması"
-        binding.toolbar.subtitle = "Ortalama : 60"
         setSupportActionBar(binding.toolbar)
 
         // RecyclerView işlemleri
@@ -29,14 +29,18 @@ class MainActivity : AppCompatActivity() {
 
 
         // Listeye verilerin eklenmesi
-        notlarListe = ArrayList()
+        /*notlarListe = ArrayList()
         val n1 = Notlar(1,"Tarih",40,80)
         val n2 = Notlar(2,"Kimya",70,50)
         val n3 = Notlar(3,"Fizik",30,60)
 
         notlarListe.add(n1)
         notlarListe.add(n2)
-        notlarListe.add(n3)
+        notlarListe.add(n3)*/
+
+        // Veritabanı işlemleri
+        vt = VeritabaniYardimcisi(this)
+        notlarListe = Notlardao().tumNotlar(vt)
 
 
         // Adapter ile tasarım bağlantısının kurulması
@@ -45,6 +49,21 @@ class MainActivity : AppCompatActivity() {
 
         // Adapter'ın bilgileri organize ettikten sonra görüntüleme işleminin yapılması
         binding.rv.adapter = adapter
+
+        // Ortalamanın hesaplanması
+        var toplam = 0
+
+        for (n in notlarListe){
+            toplam = toplam + (n.not1 + n.not2)/2
+
+        }
+
+        if (toplam != 0){
+            binding.toolbar.subtitle = "Ortalama : ${toplam/notlarListe.size}"
+
+
+        }
+
 
 
         // Floating Action Button işlemleri
