@@ -10,6 +10,7 @@ class FilmlerActivity : AppCompatActivity() {
 
     private lateinit var filmListe:ArrayList<Filmler>
     private lateinit var adapter: FilmlerAdapter
+    private lateinit var vt : VeritabaniYardimcisi
 
     private lateinit var binding: ActivityFilmlerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class FilmlerActivity : AppCompatActivity() {
         binding.filmlerRv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL) // Dikeyde 2 li olarak listeleme işlemi yapar -(2 sütun)
 
 
-        // Veri kümesinin oluşturulması
+        /*// Veri kümesinin oluşturulması
         filmListe = ArrayList()
 
         val k = Kategoriler(1,"Dram")
@@ -42,8 +43,12 @@ class FilmlerActivity : AppCompatActivity() {
 
         filmListe.add(f1)
         filmListe.add(f2)
-        filmListe.add(f3)
+        filmListe.add(f3)*/
 
+        // Veritabanı işlemleri
+        vt = VeritabaniYardimcisi(this)
+        filmListe = Filmlerdao().tumFilmlerByKategoriId(vt, kategori.kategori_id)
+        
 
         adapter = FilmlerAdapter(this,filmListe)
         binding.filmlerRv.adapter = adapter
