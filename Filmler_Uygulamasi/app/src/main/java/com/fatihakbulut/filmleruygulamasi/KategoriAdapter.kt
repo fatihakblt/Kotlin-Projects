@@ -40,6 +40,7 @@ class KategoriAdapter(private val mContext:Context, private val kategoriListe:Li
         val kategori = kategoriListe.get(position) // İndeks numaralarına göre sıralı olarak nesnelere erişme
         holder.textViewKategoriAd.text = kategori.kategori_ad
 
+        // Card'a tıklanma özelliği verildi
         holder.kategori_card.setOnClickListener{
 
         }
