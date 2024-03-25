@@ -1,6 +1,7 @@
 package com.fatihakbulut.filmleruygulamasi
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,9 @@ class KategoriAdapter(private val mContext:Context, private val kategoriListe:Li
         // Card'a tıklanma özelliği verildi
         holder.kategori_card.setOnClickListener{
 
+            val intent = Intent(mContext,FilmlerActivity::class.java)
+            intent.putExtra("kategoriNesne",kategori)
+            mContext.startActivity(intent)
         }
     }
 }
