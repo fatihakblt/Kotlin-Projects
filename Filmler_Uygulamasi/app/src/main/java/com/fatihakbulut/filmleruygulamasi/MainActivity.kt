@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var kategoriListe:ArrayList<Kategoriler>
     private lateinit var adapter: KategoriAdapter
     private lateinit var binding: ActivityMainBinding
+    private lateinit var vt : VeritabaniYardimcisi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -28,15 +29,10 @@ class MainActivity : AppCompatActivity() {
         // RecyclerView üzerindeki cardların görüntüleme biçimini ayarladık.
         binding.kategoriRv.layoutManager = LinearLayoutManager(this)
 
-        kategoriListe = ArrayList()
 
-        val k1 = Kategoriler(1,"Komedi")
-        val k2 = Kategoriler(2,"Bilim Kurgu")
-        val k3 = Kategoriler(3,"Korku")
-
-        kategoriListe.add(k1)
-        kategoriListe.add(k2)
-        kategoriListe.add(k3)
+        // Veritabanındaki bilgilerin kategoriListe'ye aktarılması
+        vt = VeritabaniYardimcisi(this)
+        kategoriListe = Kategorilerdao().tumKategoriler(vt)
 
         // Adapter sınıfına context ve kategori listelerinin gönderilmesi ve adapter nesnesine gerekli bilgilerin aktarılması
         adapter = KategoriAdapter(this, kategoriListe)
