@@ -149,7 +149,7 @@ class DatabaseCopyHelper
     }
 
     companion object {
-        
+
         private val DB_NAME = "filmler.sqlite"
     }
     //return cursor

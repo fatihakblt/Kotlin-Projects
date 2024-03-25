@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatihakbulut.filmleruygulamasi.databinding.ActivityMainBinding
+import com.info.sqlitekullanimihazirveritabani.DatabaseCopyHelper
 
 class MainActivity : AppCompatActivity() {
     private lateinit var kategoriListe:ArrayList<Kategoriler>
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Veritabanı kopyalama işlemi
+        veritabaniKopyala()
 
         // Toolbar işlemler
         binding.toolbarKategori.title = "Kategoriler"
@@ -40,5 +44,18 @@ class MainActivity : AppCompatActivity() {
         // adapter nesnesindeki verilerin kategoriRv tasarım nesnesine aktarılması
         binding.kategoriRv.adapter = adapter
 
+    }
+
+
+    fun veritabaniKopyala(){
+        val copyHelper = DatabaseCopyHelper(this)
+
+        try {
+            copyHelper.createDataBase()
+            copyHelper.openDataBase()
+
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 }
