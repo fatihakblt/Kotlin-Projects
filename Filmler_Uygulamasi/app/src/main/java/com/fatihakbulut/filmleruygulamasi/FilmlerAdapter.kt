@@ -1,6 +1,7 @@
 package com.fatihakbulut.filmleruygulamasi
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,6 +49,10 @@ class FilmlerAdapter(private val mContext:Context,private val filmlerListe:List<
         // Card'a tıklanma özelliği verildi
 
         holder.film_card.setOnClickListener{
+            // Datay activity'e geçiş yapılması ve verilerin aktarılması
+            val intent = Intent(mContext,DetayActivity::class.java)
+            intent.putExtra("filmNesne",film)
+            mContext.startActivity(intent)
 
         }
     }
