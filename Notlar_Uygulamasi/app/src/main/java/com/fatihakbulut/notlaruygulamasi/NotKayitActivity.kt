@@ -16,6 +16,7 @@ class NotKayitActivity : AppCompatActivity() {
         binding = ActivityNotKayitBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        vt = VeritabaniYardimcisi(this)
         // Toolbar işlemleri
         binding.toolbarNotKayit.title =  "Not Kayıt"
         setSupportActionBar(binding.toolbarNotKayit)

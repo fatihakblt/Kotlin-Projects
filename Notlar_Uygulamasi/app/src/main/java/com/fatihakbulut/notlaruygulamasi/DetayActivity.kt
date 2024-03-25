@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import com.fatihakbulut.notlaruygulamasi.databinding.ActivityDetayActitivityBinding
 import com.fatihakbulut.notlaruygulamasi.databinding.ActivityDetayBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -25,7 +26,7 @@ class DetayActivity : AppCompatActivity() {
 
         vt = VeritabaniYardimcisi(this)
         // Not nesnesiyle gelen bilgilerin alınması ve editText'lere aktarılması
-        val not = intent.getSerializableExtra("nesne") as Notlar
+        not = intent.getSerializableExtra("nesne") as Notlar
 
         binding.editTextDers.setText(not.ders_adi)
         binding.editTextNot1.setText((not.not1).toString())
@@ -86,6 +87,5 @@ class DetayActivity : AppCompatActivity() {
             }
             else -> return false
         }
-        return super.onOptionsItemSelected(item)
     }
 }

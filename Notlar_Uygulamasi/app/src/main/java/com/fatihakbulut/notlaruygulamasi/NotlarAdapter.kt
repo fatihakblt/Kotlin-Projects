@@ -59,8 +59,5 @@ class NotlarAdapter(private val mContext:Context, private val notlarListe:List<N
 
 
         }
-
-
-
     }
 }

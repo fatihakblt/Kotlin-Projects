@@ -1,5 +1,6 @@
 package com.fatihakbulut.notlaruygulamasi
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding.rv.layoutManager = LinearLayoutManager(this) // RecyclerView üzerindeki cardView'lerin görünümünü  lineerLayput ile düzenledik.
 
 
-        // Listeye verilerin eklenmesi
-        /*notlarListe = ArrayList()
+        /*// Listeye verilerin eklenmesi
+        notlarListe = ArrayList()
         val n1 = Notlar(1,"Tarih",40,80)
         val n2 = Notlar(2,"Kimya",70,50)
         val n3 = Notlar(3,"Fizik",30,60)
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         notlarListe.add(n1)
         notlarListe.add(n2)
         notlarListe.add(n3)*/
+
 
         // Veritabanı işlemleri
         vt = VeritabaniYardimcisi(this)
@@ -80,5 +82,6 @@ class MainActivity : AppCompatActivity() {
         intent.addCategory(Intent.CATEGORY_HOME)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
+
     }
 }
