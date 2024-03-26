@@ -2,7 +2,11 @@ package com.fatihakbulut.kisileruygulamasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatihakbulut.kisileruygulamasi.databinding.ActivityMainBinding
 
@@ -40,6 +44,31 @@ class MainActivity : AppCompatActivity() {
         // Floating Action button işlemleri
         binding.fab.setOnClickListener {
 
+            alertGoster()
         }
+    }
+
+    fun alertGoster(){
+        val tasarim = LayoutInflater.from(this).inflate(R.layout.alert_tasarim,null)
+        val editTextAd = tasarim.findViewById(R.id.editTextAd) as EditText
+        val editTextTel = tasarim.findViewById(R.id.editTextTel) as EditText
+
+        val ad = AlertDialog.Builder(this)
+
+        ad.setTitle("Kişi Ekle")
+        ad.setView(tasarim)
+
+        ad.setPositiveButton("Ekle"){dialogInterface, i ->
+
+            val kisi_ad = editTextAd.text.toString().trim()
+            val kisi_tel = editTextTel.text.toString().trim()
+
+            Toast.makeText(applicationContext,"$kisi_ad - $kisi_tel",Toast.LENGTH_SHORT).show()
+
+        }
+
+        ad.setNegativeButton("İptal"){dialogInterface, i ->
+        }
+        ad.create().show()
     }
 }

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class KisilerAdapter(private val mContext:Context,private val kisilerListe:List<Kisiler>) : RecyclerView.Adapter<KisilerAdapter.CardTasarimTutucu>(){
 
@@ -40,6 +42,28 @@ class KisilerAdapter(private val mContext:Context,private val kisilerListe:List<
 
         holder.imageViewNokta.setOnClickListener {
 
+            val popopMenu  = PopupMenu(mContext,holder.imageViewNokta)
+            popopMenu.menuInflater.inflate(R.menu.popup_menu,popopMenu.menu)
+            popopMenu.setOnMenuItemClickListener {menuItem ->
+                when(menuItem.itemId){
+                    R.id.action_sil ->{
+                        Snackbar.make(holder.imageViewNokta,"${kisi.kisi_ad} silinsin mi?",Snackbar.LENGTH_SHORT)
+                            .setAction("EVET"){
+
+                            }.show()
+                        true
+                    }
+
+                    R.id.action_guncelle ->{
+
+                        true
+                    }
+                    else -> false
+                }
+
+            }
+
+            popopMenu.show()
         }
     }
 }
