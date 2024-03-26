@@ -2,15 +2,18 @@ package com.fatihakbulut.kisileruygulamasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fatihakbulut.kisileruygulamasi.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),androidx.appcompat.widget.SearchView.OnQueryTextListener  {
     private lateinit var binding: ActivityMainBinding
     private lateinit var kisilerListe: ArrayList<Kisiler>
     private lateinit var adapter: KisilerAdapter
@@ -48,6 +51,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu,menu)
+        val item = menu?.findItem(R.id.action_ara)
+        val searchView = item?.actionView as androidx.appcompat.widget.SearchView
+        searchView.setOnQueryTextListener(this)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     fun alertGoster(){
         val tasarim = LayoutInflater.from(this).inflate(R.layout.alert_tasarim,null)
         val editTextAd = tasarim.findViewById(R.id.editTextAd) as EditText
@@ -71,4 +82,19 @@ class MainActivity : AppCompatActivity() {
         }
         ad.create().show()
     }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            Log.e("Gönderilen arama",query)
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if (newText != null) {
+            Log.e("Harf girdikçe",newText)
+        }
+        return true
+    }
+
 }
