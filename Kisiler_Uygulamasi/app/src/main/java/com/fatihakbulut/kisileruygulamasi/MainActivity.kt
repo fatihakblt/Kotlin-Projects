@@ -89,23 +89,33 @@ class MainActivity : AppCompatActivity(),androidx.appcompat.widget.SearchView.On
         ad.create().show()
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        if (query != null) {
+    override fun onQueryTextSubmit(query: String): Boolean {
+            aramaYap(query)
             Log.e("Gönderilen arama",query)
-        }
-        return true
+            return true
     }
 
-    override fun onQueryTextChange(newText: String?): Boolean {
-        if (newText != null) {
+    override fun onQueryTextChange(newText: String): Boolean {
+            aramaYap(newText)
             Log.e("Harf girdikçe",newText)
-        }
-        return true
+            return true
     }
 
     fun tumKisilerAl(){
         // Tüm kişileri listeleme
         kisilerListe = Kisilerdao().tumKisiler(vt)
+
+        // Veri kümesinin adapter sınıfına aktarılması
+        adapter = KisilerAdapter(this,kisilerListe)
+
+        // Adapter nesnesinin RecyclerView'a aktarılması
+        binding.rv.adapter = adapter
+
+    }
+
+    fun aramaYap(aramaKelime:String){
+        // Tüm kişileri listeleme
+        kisilerListe = Kisilerdao().kisiAra(vt,aramaKelime)
 
         // Veri kümesinin adapter sınıfına aktarılması
         adapter = KisilerAdapter(this,kisilerListe)
