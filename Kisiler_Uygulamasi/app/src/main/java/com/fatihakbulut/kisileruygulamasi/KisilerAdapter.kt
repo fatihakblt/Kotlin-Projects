@@ -13,7 +13,10 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 
-class KisilerAdapter(private val mContext:Context,private val kisilerListe:List<Kisiler>) : RecyclerView.Adapter<KisilerAdapter.CardTasarimTutucu>(){
+class KisilerAdapter(private val mContext:Context
+,private var kisilerListe:List<Kisiler>
+,private val vt:VeritabaniYardimcisi)
+    : RecyclerView.Adapter<KisilerAdapter.CardTasarimTutucu>(){
 
     // Card tasarımını tanımladık
     inner class CardTasarimTutucu(tasarim:View) : RecyclerView.ViewHolder(tasarim){
@@ -52,12 +55,18 @@ class KisilerAdapter(private val mContext:Context,private val kisilerListe:List<
                     R.id.action_sil ->{
                         Snackbar.make(holder.imageViewNokta,"${kisi.kisi_ad} silinsin mi?",Snackbar.LENGTH_SHORT)
                             .setAction("EVET"){
-
+                                // Silme işleminin gerçekleştirilmesi
+                                Kisilerdao().kisiSil(vt,kisi.kisi_id)
+                                // Listenin güncel halinin tekrar alınması
+                                kisilerListe = Kisilerdao().tumKisiler(vt)
+                                // Silme işlemindem sonra arayüzün yenilenmesi
+                                notifyDataSetChanged()
                             }.show()
                         true
                     }
 
                     R.id.action_guncelle ->{
+                        // Verilerin editText'e aktarılması
                         alertGoster(kisi)
 
                         true

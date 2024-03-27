@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(),androidx.appcompat.widget.SearchView.On
         kisilerListe = Kisilerdao().tumKisiler(vt)
 
         // Veri kümesinin adapter sınıfına aktarılması
-        adapter = KisilerAdapter(this,kisilerListe)
+        adapter = KisilerAdapter(this,kisilerListe,vt)
 
         // Adapter nesnesinin RecyclerView'a aktarılması
         binding.rv.adapter = adapter
@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity(),androidx.appcompat.widget.SearchView.On
         kisilerListe = Kisilerdao().kisiAra(vt,aramaKelime)
 
         // Veri kümesinin adapter sınıfına aktarılması
-        adapter = KisilerAdapter(this,kisilerListe)
+        adapter = KisilerAdapter(this,kisilerListe,vt)
 
         // Adapter nesnesinin RecyclerView'a aktarılması
         binding.rv.adapter = adapter
