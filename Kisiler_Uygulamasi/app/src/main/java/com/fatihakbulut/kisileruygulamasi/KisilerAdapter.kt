@@ -97,6 +97,12 @@ class KisilerAdapter(private val mContext:Context
             val kisi_ad = editTextAd.text.toString().trim()
             val kisi_tel = editTextTel.text.toString().trim()
 
+            // Guncelleme işleminin yapılması
+            Kisilerdao().kisiGuncelle(vt,kisi.kisi_id,kisi_ad,kisi_tel)
+            // Listenin güncel halinin tekrar alınması
+            kisilerListe = Kisilerdao().tumKisiler(vt)
+            // Güncelleme işleminden sonra arayüzün yenilenmesi
+            notifyDataSetChanged()
             Toast.makeText(mContext,"$kisi_ad - $kisi_tel", Toast.LENGTH_SHORT).show()
 
         }
