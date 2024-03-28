@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "851044165118",
+    "project_id": "udemy997-ad887",
+    "storage_bucket": "udemy997-ad887.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851044165118:android:a9590a7b8844fefa73ccaf",
+        "android_client_info": {
+          "package_name": "com.fatihakbulut.internetbildirimuygulama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVASDLJzXoltMZdpjcbMwgDHcoSINoaVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
