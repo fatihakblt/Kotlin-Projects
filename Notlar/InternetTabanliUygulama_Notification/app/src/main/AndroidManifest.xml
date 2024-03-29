@@ -21,6 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/resim"></meta-data>
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/design_default_color_background"></meta-data>
+
+        <service android:name=".MesajServisi"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
