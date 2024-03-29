@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonYap.setOnClickListener {
-            
+
         }
     }
 }
