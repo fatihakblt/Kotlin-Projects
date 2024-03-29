@@ -12,8 +12,10 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
+// Uygulama çalışırken bildirim göndermek için MesajServisi sınıfı oluşturuldu.
 class MesajServisi :FirebaseMessagingService() {
 
+    // Uygulama ön planda çalışırken  bildirim içeriğine ve başlığına bu metod ile erişilir.
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
 
