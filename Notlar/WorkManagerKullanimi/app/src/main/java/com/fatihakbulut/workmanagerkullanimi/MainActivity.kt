@@ -2,6 +2,7 @@ package com.fatihakbulut.workmanagerkullanimi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.fatihakbulut.workmanagerkullanimi.databinding.ActivityMainBinding
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
             WorkManager.getInstance(this).enqueue(istek)
+
+            WorkManager.getInstance(this).getWorkInfoByIdLiveData(istek.id)
+                .observe(this){
+                    val durum = it.state.name
+                    Log.e("Arkaplan İşlem Durumu",durum)
+                }
         }
     }
 }
