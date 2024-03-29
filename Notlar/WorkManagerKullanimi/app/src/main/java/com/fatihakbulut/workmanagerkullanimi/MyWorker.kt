@@ -10,6 +10,6 @@ class MyWorker(mContext:Context,workerParams: WorkerParameters): Worker(mContext
         val toplam = 10 + 20
         Log.e("Arkaplan İşlemi Sonucu", toplam.toString())
         return Result.success() // Başarılı oldu bildirimi
-        
+
     }
 }

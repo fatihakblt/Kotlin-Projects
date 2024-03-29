@@ -2,7 +2,10 @@ package com.fatihakbulut.workmanagerkullanimi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.fatihakbulut.workmanagerkullanimi.databinding.ActivityMainBinding
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,6 +16,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonYap.setOnClickListener {
 
+            // Butona bastıkça bir seferlik sonuç getiren yapı
+            val istek = OneTimeWorkRequestBuilder<MyWorker>()
+                .setInitialDelay(10,TimeUnit.SECONDS) // 10 saniyelik gecikme eklendi
+                .build()
+
+            WorkManager.getInstance(this).enqueue(istek)
         }
     }
 }
