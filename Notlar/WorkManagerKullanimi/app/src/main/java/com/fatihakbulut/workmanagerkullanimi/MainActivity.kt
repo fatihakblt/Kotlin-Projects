@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.fatihakbulut.workmanagerkullanimi.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonYap.setOnClickListener {
-            val calismaKosulu = Constraints.Builder()
+            /*val calismaKosulu = Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED) // Internet varsa koşulu getirildi.
                 .build()
 
@@ -28,8 +29,14 @@ class MainActivity : AppCompatActivity() {
                 .setConstraints(calismaKosulu)
                 .build()
 
-            WorkManager.getInstance(this).enqueue(istek)
+            WorkManager.getInstance(this).enqueue(istek)*/
 
+            val istek = PeriodicWorkRequestBuilder<MyWorkerBildirim>(15,TimeUnit.MINUTES)
+                .setInitialDelay(10,TimeUnit.SECONDS) // 10 saniyelik gecikme eklendi
+                .build()
+
+            WorkManager.getInstance(this).enqueue(istek)
+            
             WorkManager.getInstance(this).getWorkInfoByIdLiveData(istek.id)
                 .observe(this){
                     val durum = it.state.name
