@@ -117,10 +117,7 @@ class MainActivity : AppCompatActivity() {
                     Log.e("Kisi tel",kisi_tel)
                     Log.e("******","******")
 
-
-
                 }
-
 
             }catch (e:JSONException){
                 e.printStackTrace()
@@ -140,6 +137,29 @@ class MainActivity : AppCompatActivity() {
 
         val istek = object : StringRequest(Method.POST,url,Response.Listener { cevap ->
             Log.e("Arama Cevap",cevap)
+
+            try {
+                val jsonObject = JSONObject(cevap) // Cevap json formatına dönüştürüldü.
+                val kisilerListe = jsonObject.getJSONArray("kisiler") // Cevapdaki arrayin adı kisiler
+
+                // Array içindeki öeğelere erişme
+                for(i in  0 until kisilerListe.length()){
+                    val k = kisilerListe.getJSONObject(i)
+
+                    val kisi_id = k.getInt("kisi_id")
+                    val kisi_ad = k.getString("kisi_ad")
+                    val kisi_tel = k.getString("kisi_tel")
+
+                    Log.e("Kisi id",kisi_id.toString())
+                    Log.e("Kisi ad",kisi_ad)
+                    Log.e("Kisi tel",kisi_tel)
+                    Log.e("******","******")
+
+                }
+
+            }catch (e:JSONException){
+                e.printStackTrace()
+            }
         },Response.ErrorListener { error ->error.printStackTrace()  }){
 
             override fun getParams() : MutableMap<String, String> {
