@@ -8,6 +8,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.fatihakbulut.volleykullanimi.databinding.ActivityMainBinding
+import org.json.JSONException
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -95,6 +97,32 @@ class MainActivity : AppCompatActivity() {
         val istek = StringRequest(Request.Method.GET,url,Response.Listener { cevap ->
 
             Log.e("Veri Okuma Cevap",cevap)
+
+            try {
+                val jsonObject = JSONObject(cevap) // Cevap json formatına dönüştürüldü.
+                val kisilerListe = jsonObject.getJSONArray("kisiler") // Cevapdaki arrayin adı kisiler
+
+                // Array içindeki öeğelere erişme
+                for(i in  0 until kisilerListe.length()){
+                    val k = kisilerListe.getJSONObject(i)
+
+                    val kisi_id = k.getInt("kisi_id")
+                    val kisi_ad = k.getString("kisi_ad")
+                    val kisi_tel = k.getString("kisi_tel")
+
+                    Log.e("Kisi id",kisi_id.toString())
+                    Log.e("Kisi ad",kisi_ad)
+                    Log.e("Kisi tel",kisi_tel)
+                    Log.e("******","******")
+
+
+
+                }
+
+
+            }catch (e:JSONException){
+                e.printStackTrace()
+            }
 
         },Response.ErrorListener { error ->error.printStackTrace()  })
 
