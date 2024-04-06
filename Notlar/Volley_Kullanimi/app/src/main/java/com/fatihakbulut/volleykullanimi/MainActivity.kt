@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity() {
 
         //kisiSil()
 
-        kisiEkle()
+        //kisiEkle()
+
+        kisiGuncelle()
     }
 
     fun kisiSil(){
@@ -55,6 +57,28 @@ class MainActivity : AppCompatActivity() {
 
                 params["kisi_ad"] = "testad1"
                 params["kisi_tel"] = "testtel1"
+                return params
+            }
+        }
+        // isteğin çalıştırılması
+        Volley.newRequestQueue(this@MainActivity).add(istek)
+
+    }
+
+
+    fun kisiGuncelle(){
+        val url =  "https://fatihakbulut.net/kisiler/update_kisiler.php"
+        val istek = object : StringRequest(Method.POST,url,Response.Listener { cevap ->
+            Log.e("Güncelleme İşlemi Cevap",cevap)
+        },Response.ErrorListener { error ->error.printStackTrace()  }){
+
+            override fun getParams() : MutableMap<String, String> {
+
+                val params = HashMap<String,String>()
+
+                params["kisi_id"] = "9"
+                params["kisi_ad"] = "testad1Guncel"
+                params["kisi_tel"] = "testtel1Guncel"
                 return params
             }
         }
