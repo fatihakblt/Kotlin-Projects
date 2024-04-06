@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
 
         //kisiGuncelle()
 
-        tumKisiler()
+        //tumKisiler()
+
+        aramaYap()
     }
 
     fun kisiSil(){
@@ -130,4 +132,31 @@ class MainActivity : AppCompatActivity() {
         Volley.newRequestQueue(this@MainActivity).add(istek)
 
     }
+
+
+    fun aramaYap(){
+        // Web servisi ile iletişimin kurulması
+        val url = "https://fatihakbulut.net/kisiler/tum_kisiler_arama.php"
+
+        val istek = object : StringRequest(Method.POST,url,Response.Listener { cevap ->
+            Log.e("Arama Cevap",cevap)
+        },Response.ErrorListener { error ->error.printStackTrace()  }){
+
+            override fun getParams() : MutableMap<String, String> {
+
+                val params = HashMap<String,String>()
+
+                params["kisi_ad"] = "A"
+
+                return params
+            }
+        }
+
+        // isteğin çalıştırılması
+        Volley.newRequestQueue(this@MainActivity).add(istek)
+    }
+
+
+
+
 }
