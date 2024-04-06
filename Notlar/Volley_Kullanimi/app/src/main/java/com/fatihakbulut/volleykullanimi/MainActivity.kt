@@ -3,6 +3,7 @@ package com.fatihakbulut.volleykullanimi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         //kisiEkle()
 
-        kisiGuncelle()
+        //kisiGuncelle()
+
+        tumKisiler()
     }
 
     fun kisiSil(){
@@ -82,6 +85,19 @@ class MainActivity : AppCompatActivity() {
                 return params
             }
         }
+        // isteğin çalıştırılması
+        Volley.newRequestQueue(this@MainActivity).add(istek)
+
+    }
+
+    fun tumKisiler(){
+        val url =  "https://fatihakbulut.net/kisiler/tum_kisiler.php"
+        val istek = StringRequest(Request.Method.GET,url,Response.Listener { cevap ->
+
+            Log.e("Veri Okuma Cevap",cevap)
+
+        },Response.ErrorListener { error ->error.printStackTrace()  })
+
         // isteğin çalıştırılması
         Volley.newRequestQueue(this@MainActivity).add(istek)
 
