@@ -22,7 +22,10 @@ class MainActivity : AppCompatActivity() {
         //kisiEkle()
 
         // Kisi günceleme işlemi
-        kisiGucelle()
+        //kisiGucelle()
+
+        // Kişi listeleme işlemi
+        tumKisiler()
     }
     // Silme işlemi
     fun kisiSil(){
@@ -95,6 +98,35 @@ class MainActivity : AppCompatActivity() {
 
             // Hata alınırsa hata sonucunu döndüren metod
             override fun onFailure(call: Call<CRUDCevap>?, t: Throwable?) {
+
+
+            }
+        })
+    }
+
+
+    fun tumKisiler(){
+
+        val kdi = ApiUtils.getKisilerDaoInterface()
+        kdi.tumKisiler().enqueue(object : Callback<KisilerCevap>{
+
+            override fun onResponse(call: Call<KisilerCevap>?, response: Response<KisilerCevap>?) {
+
+                if(response != null){
+                    val kisilerListe = response.body().kisiler
+
+                    for (k in kisilerListe){
+                        Log.e("*****","*****")
+                        Log.e("Kisi id",(k.kisiId).toString())
+                        Log.e("Kisi ad",(k.kisiAd))
+                        Log.e("Kisi tel",(k.kisiTel))
+
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<KisilerCevap>?, t: Throwable?) {
 
 
             }

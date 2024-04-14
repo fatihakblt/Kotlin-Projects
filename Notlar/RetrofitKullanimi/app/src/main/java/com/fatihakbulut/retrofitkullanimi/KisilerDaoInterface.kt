@@ -3,6 +3,7 @@ package com.fatihakbulut.retrofitkullanimi
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 // Bu interface içerisinde web servisler ile ilgili metotlar oluşturulacak ve daha sonra bunlar kullanılacak
@@ -28,5 +29,8 @@ interface KisilerDaoInterface {
     fun kisiGuncelle(@Field("kisi_id") kisi_id: Int,
                  @Field("kisi_ad") kisi_ad:String,
                  @Field("kisi_tel") kisi_tel:String): Call<CRUDCevap>
+
+    @GET("kisiler/tum_kisiler.php")
+    fun tumKisiler() : Call<KisilerCevap>
 
 }
