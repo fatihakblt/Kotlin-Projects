@@ -25,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         //kisiGucelle()
 
         // Kişi listeleme işlemi
-        tumKisiler()
+        //tumKisiler()
+
+        //Kisi arama işlemi
+        kisiArama()
     }
     // Silme işlemi
     fun kisiSil(){
@@ -109,6 +112,33 @@ class MainActivity : AppCompatActivity() {
 
         val kdi = ApiUtils.getKisilerDaoInterface()
         kdi.tumKisiler().enqueue(object : Callback<KisilerCevap>{
+
+            override fun onResponse(call: Call<KisilerCevap>?, response: Response<KisilerCevap>?) {
+
+                if(response != null){
+                    val kisilerListe = response.body().kisiler
+
+                    for (k in kisilerListe){
+                        Log.e("*****","*****")
+                        Log.e("Kisi id",(k.kisiId).toString())
+                        Log.e("Kisi ad",(k.kisiAd))
+                        Log.e("Kisi tel",(k.kisiTel))
+
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<KisilerCevap>?, t: Throwable?) {
+
+
+            }
+        })
+    }
+
+    fun kisiArama(){
+        val kdi = ApiUtils.getKisilerDaoInterface()
+        kdi.kisiAra("A").enqueue(object : Callback<KisilerCevap>{
 
             override fun onResponse(call: Call<KisilerCevap>?, response: Response<KisilerCevap>?) {
 

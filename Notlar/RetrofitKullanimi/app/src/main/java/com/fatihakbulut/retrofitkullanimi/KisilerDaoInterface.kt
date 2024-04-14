@@ -33,4 +33,7 @@ interface KisilerDaoInterface {
     @GET("kisiler/tum_kisiler.php")
     fun tumKisiler() : Call<KisilerCevap>
 
+    @POST("kisiler/tum_kisiler_arama.php")
+    @FormUrlEncoded
+    fun kisiAra(@Field("kisi_ad") kisi_ad: String): Call<KisilerCevap>
 }
