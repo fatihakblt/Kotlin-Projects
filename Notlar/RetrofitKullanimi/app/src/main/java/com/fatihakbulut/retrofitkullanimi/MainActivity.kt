@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Kisi silme işlemi
-        kisiSil()
+        //kisiSil()
 
         // Kisi ekleme işlemi
-        kisiEkle()
+        //kisiEkle()
 
+        // Kisi günceleme işlemi
+        kisiGucelle()
     }
     // Silme işlemi
     fun kisiSil(){
@@ -52,6 +54,32 @@ class MainActivity : AppCompatActivity() {
         // Ekleme işlemi
         val kdi = ApiUtils.getKisilerDaoInterface()
         kdi.kisiEkle("ahmet","999999").enqueue(object : Callback<CRUDCevap>{
+
+            // Gelen cevap
+            override fun onResponse(call: Call<CRUDCevap>?, response: Response<CRUDCevap>?) {
+
+                if (response != null){
+                    Log.e("Başarı",response.body().success.toString())
+                    Log.e("Mesaj",response.body().message)
+
+                }
+
+
+            }
+
+            // Hata alınırsa hata sonucunu döndüren metod
+            override fun onFailure(call: Call<CRUDCevap>?, t: Throwable?) {
+
+
+            }
+        })
+    }
+
+
+    fun kisiGucelle(){
+        // Ekleme işlemi
+        val kdi = ApiUtils.getKisilerDaoInterface()
+        kdi.kisiGuncelle(6,"yeni emir","999999").enqueue(object : Callback<CRUDCevap>{
 
             // Gelen cevap
             override fun onResponse(call: Call<CRUDCevap>?, response: Response<CRUDCevap>?) {

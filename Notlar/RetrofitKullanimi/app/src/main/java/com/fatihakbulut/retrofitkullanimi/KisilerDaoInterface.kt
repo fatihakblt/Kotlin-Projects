@@ -22,4 +22,11 @@ interface KisilerDaoInterface {
                  @Field("kisi_tel") kisi_tel:String): Call<CRUDCevap>
 
 
+    // Kişi günelleme
+    @POST("kisiler/update_kisiler.php")
+    @FormUrlEncoded
+    fun kisiGuncelle(@Field("kisi_id") kisi_id: Int,
+                 @Field("kisi_ad") kisi_ad:String,
+                 @Field("kisi_tel") kisi_tel:String): Call<CRUDCevap>
+
 }
