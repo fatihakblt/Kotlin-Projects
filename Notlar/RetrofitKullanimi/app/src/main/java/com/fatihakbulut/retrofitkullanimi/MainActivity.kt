@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         // Kisi silme işlemi
         kisiSil()
 
+        // Kisi ekleme işlemi
+        kisiEkle()
+
     }
     // Silme işlemi
     fun kisiSil(){
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     fun kisiEkle(){
         // Ekleme işlemi
         val kdi = ApiUtils.getKisilerDaoInterface()
-        kdi.kisiEkle("retrofittestisim","retrofittesttel").enqueue(object : Callback<CRUDCevap>{
+        kdi.kisiEkle("ahmet","999999").enqueue(object : Callback<CRUDCevap>{
 
             // Gelen cevap
             override fun onResponse(call: Call<CRUDCevap>?, response: Response<CRUDCevap>?) {
