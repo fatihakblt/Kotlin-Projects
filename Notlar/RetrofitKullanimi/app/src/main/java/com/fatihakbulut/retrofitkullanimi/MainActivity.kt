@@ -44,4 +44,29 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+    fun kisiEkle(){
+        // Ekleme işlemi
+        val kdi = ApiUtils.getKisilerDaoInterface()
+        kdi.kisiEkle("retrofittestisim","retrofittesttel").enqueue(object : Callback<CRUDCevap>{
+
+            // Gelen cevap
+            override fun onResponse(call: Call<CRUDCevap>?, response: Response<CRUDCevap>?) {
+
+                if (response != null){
+                    Log.e("Başarı",response.body().success.toString())
+                    Log.e("Mesaj",response.body().message)
+
+                }
+
+
+            }
+
+            // Hata alınırsa hata sonucunu döndüren metod
+            override fun onFailure(call: Call<CRUDCevap>?, t: Throwable?) {
+
+
+            }
+        })
+    }
 }
